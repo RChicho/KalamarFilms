@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "888154333918",
+    "firebase_url": "https://filmsappkalamar.firebaseio.com",
+    "project_id": "filmsappkalamar",
+    "storage_bucket": "filmsappkalamar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888154333918:android:ef6b9e610cf43f4300584f",
+        "android_client_info": {
+          "package_name": "com.example.invitaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888154333918-9ami96d75v2lh7s1ic43nqlufsllmg8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.invitaapp",
+            "certificate_hash": "d0bc742173d5c4a29ea779a4f1223480ec883633"
+          }
+        },
+        {
+          "client_id": "888154333918-60kuh8mjs8kp7hq06grge1kbmmensanf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwAGqNhGhWZI7RlJd_P_PeyltwBYbBkVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888154333918-60kuh8mjs8kp7hq06grge1kbmmensanf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

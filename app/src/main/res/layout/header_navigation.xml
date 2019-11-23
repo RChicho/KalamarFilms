@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#725E21"
+    android:id="@+id/navegationView"
+    >
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_kalamar_series"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        />
+
+  <!--  <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonInicioNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Inicio"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonPerfilNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Perfil"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonFavoritosNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Favoritos"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonConfiguracionNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Configuracion"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonJuegosNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Juegos"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonAcercaKalamarNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Acerca de Kalamar"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ButtonLogOutNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Logout"
+        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:layout_margin="10dp"
+        android:background="#725E21"
+        />
+-->
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

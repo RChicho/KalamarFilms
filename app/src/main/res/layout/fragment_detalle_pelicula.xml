@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    tools:context=".View.FragmentDetallePelicula"
+    android:orientation="vertical"
+    android:id="@+id/ContenedorFragmentDetallePelicula"
+    android:background="#000000">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#FDFDFD"
+        android:text="TITULO PELICULA"
+        android:id="@+id/DetallePeliculaTextViewTitulo"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/cargando"
+        android:id="@+id/ImageViewDetallePeliculaFoto"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        app:tabTextColor="@color/blanco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabLayoutFragmentDetallePelicula"
+        app:tabMode="scrollable"
+
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPagerFragmentDetallePelicula"
+        />
+
+</LinearLayout>

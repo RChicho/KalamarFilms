@@ -1,0 +1,4 @@
+curl --request GET \
+  --url 'https://api.themoviedb.org/4/list/1' \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'Content-Type: application/json;charset=utf-8'
