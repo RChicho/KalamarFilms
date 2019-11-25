@@ -17,9 +17,9 @@ import java.security.Permission;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActorAdapter  extends RecyclerView.Adapter<ActorAdapter.ActorViewHolder> {
-   protected List<Actor> listaDeActores;
-   private ListenerDelAdapter listenerDelAdapter;
+public class ActorAdapter extends RecyclerView.Adapter<ActorAdapter.ActorViewHolder> {
+    protected List<Actor> listaDeActores;
+    private ListenerDelAdapter listenerDelAdapter;
 
     public ActorAdapter(List<Actor> listaDeActores) {
         this.listaDeActores = listaDeActores;
@@ -34,7 +34,8 @@ public class ActorAdapter  extends RecyclerView.Adapter<ActorAdapter.ActorViewHo
     @Override
     public ActorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflador = LayoutInflater.from(parent.getContext());
-        View vista= inflador.inflate(R.layout.celda_actor, parent, false);
+        View vista = inflador.inflate(R.layout.celda_actor, parent, false);
+
         ActorViewHolder actorViewHolder = new ActorViewHolder(vista);
 
         return actorViewHolder;
@@ -42,9 +43,8 @@ public class ActorAdapter  extends RecyclerView.Adapter<ActorAdapter.ActorViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ActorViewHolder holder, int position) {
-    Actor unActorDeLaLista = listaDeActores.get(position);
-    holder.CargarImagen(unActorDeLaLista);
-    //holder.CargarNombreActor(unActorDeLaLista);
+        Actor unActorDeLaLista = listaDeActores.get(position);
+        holder.CargarDatos(unActorDeLaLista);
     }
 
     @Override
@@ -52,9 +52,9 @@ public class ActorAdapter  extends RecyclerView.Adapter<ActorAdapter.ActorViewHo
         return listaDeActores.size();
     }
 
-    public List<Actor> getListaDeActores() {
+   /* public List<Actor> getListaDeActores() {
         return listaDeActores;
-    }
+    }*/
 
     public void setListaDeActores(List<Actor> listaDeActores) {
         this.listaDeActores = listaDeActores;
@@ -71,35 +71,30 @@ public class ActorAdapter  extends RecyclerView.Adapter<ActorAdapter.ActorViewHo
 
         public ActorViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewActorNombre= itemView.findViewById(R.id.textViewNombreActor);
+            textViewActorNombre = itemView.findViewById(R.id.textViewNombreActor);
             imageViewActor = itemView.findViewById(R.id.imageViewImagenActor);
             textViewActorPersonaje = itemView.findViewById(R.id.textViewNombrePersonaje);
-            itemView.setOnClickListener(new View.OnClickListener() {
+
+           /* itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Actor actorSeleccionado = listaDeActores.get(getAdapterPosition());
 
                 }
-            });
+            });*/
 
         }
 
-        public void CargarImagen(Actor actor) {
+        public void CargarDatos(Actor actor) {
             Glide.with(imageViewActor.getContext()).load(actor.getUrlImagenActor()).placeholder(R.drawable.cargando).into(imageViewActor);
             textViewActorNombre.setText(actor.getNombreDelActor());
-           textViewActorPersonaje.setText(actor.getNombreDelPersonaje());
+            textViewActorPersonaje.setText(actor.getNombreDelPersonaje());
             //textViewEdadActor.setText("Edad: " );
         }
-        public void CargarNombreActor (Actor actor){
-            textViewActorNombre.setText(actor.getNombreDelActor());
-        }
 
-        public void CargarNombrePersonaje (Actor actor){
-          //  textViewActorPersonaje.setText(actor.getNombreDelPersonaje());
-
-        }
     }
-    public interface ListenerDelAdapter{
-       public void informarActorSeleccionado (Actor actor);
+
+    public interface ListenerDelAdapter {
+        public void informarActorSeleccionado(Actor actor);
     }
 }

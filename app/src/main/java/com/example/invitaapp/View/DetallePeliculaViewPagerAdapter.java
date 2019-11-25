@@ -18,9 +18,9 @@ public class DetallePeliculaViewPagerAdapter extends FragmentStatePagerAdapter {
     public DetallePeliculaViewPagerAdapter(FragmentManager fm, Pelicula pelicula) {
         super(fm);
         listaFragmentDetallePelicula = new ArrayList<>();
-        listaFragmentDetallePelicula.add(new FragmentSinopsis(pelicula));
+        listaFragmentDetallePelicula.add(FragmentSinopsis.dameUnFragment(pelicula));
         listaFragmentDetallePelicula.add(FragmentDetalleActor.dameUnFragment(pelicula));
-        listaFragmentDetallePelicula.add(new FragmentRojo());
+        listaFragmentDetallePelicula.add(FragmentPeliculasSimilares.dameUnFragment(pelicula));
         listaFragmentDetallePelicula.add(new FragmentRojo());
 
     }
@@ -38,7 +38,7 @@ public class DetallePeliculaViewPagerAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        String titulo = "Titulo";
+        String titulo = "Trailer";
         switch (position) {
             case 0:
                 titulo = "Sinopsis";

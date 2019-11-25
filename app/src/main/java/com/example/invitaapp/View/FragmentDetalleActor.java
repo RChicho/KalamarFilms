@@ -1,6 +1,4 @@
 package com.example.invitaapp.View;
-
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,9 +21,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentDetalleActor extends Fragment implements ActorAdapter.ListenerDelAdapter {
 
     private RecyclerView recyclerViewListaDeActores;
@@ -43,13 +38,9 @@ public class FragmentDetalleActor extends Fragment implements ActorAdapter.Liste
 
     public static FragmentDetalleActor dameUnFragment(Pelicula pelicula) {
         FragmentDetalleActor fragmentDetalleActor = new FragmentDetalleActor();
-
         Bundle bundle = new Bundle();
-
         bundle.putSerializable(CLAVE_PELICULA, pelicula);
-
         fragmentDetalleActor.setArguments(bundle);
-
 
         return fragmentDetalleActor;
     }
@@ -62,17 +53,14 @@ public class FragmentDetalleActor extends Fragment implements ActorAdapter.Liste
 
         View vistaDelFragment = inflater.inflate(R.layout.fragment_fragment_detalle_actor, container, false);
         inflarVistas(vistaDelFragment);
+
+
         Pelicula unaPelicula = recepcionarPelicula();
-
-        //Pelicula pelicula = (Pelicula) getArguments().getSerializable("a");
-        //Integer numeroId=  unaPelicula.getId();
         int idPelicular= unaPelicula.getId();
-
-
-
 
         final ActorAdapter actorAdapter = new ActorAdapter(this);
         final PeliculaController peliculaController = new PeliculaController();
+
         peliculaController.traerActores(idPelicular, new ResultListener<List<Actor>>() {
             @Override
             public void finish(List<Actor> result) {
@@ -88,34 +76,24 @@ public class FragmentDetalleActor extends Fragment implements ActorAdapter.Liste
         return vistaDelFragment;
     }
 
-   /* private Pelicula recepcionarPelicula() {
-        Bundle bundle = getArguments();
-       Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
-
-        return peliculaSeleccionada;
-    }*/
 
     private void inflarVistas(View vistaDelFragment) {
-
         recyclerViewListaDeActores = vistaDelFragment.findViewById(R.id.RecyclerViewFragmentActores);
         textViewNombrePersonaje = vistaDelFragment.findViewById(R.id.textViewNombrePersonaje);
-
     }
 
     @Override
     public void informarActorSeleccionado(Actor actor) {
         listenerDelFragment.recibirActor(actor);
-
     }
 
     public interface ListenerDelFragment {
         void recibirActor(Actor actor);
     }
-    private Pelicula recepcionarPelicula() {
 
+    private Pelicula recepcionarPelicula() {
         Bundle bundle = getArguments();
         Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
-
         return peliculaSeleccionada;
     }
 }

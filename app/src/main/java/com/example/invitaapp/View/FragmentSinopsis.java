@@ -1,6 +1,4 @@
 package com.example.invitaapp.View;
-
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,16 +11,14 @@ import android.widget.TextView;
 import com.example.invitaapp.Model.Pelicula;
 import com.example.invitaapp.R;
 
-
 public class FragmentSinopsis extends Fragment {
 
     private TextView textViewSinopsis;
-    private Pelicula pelicula;
+    private static final String CLAVE_PELICULA = "Clave_Pelicula";
 
 
-    public FragmentSinopsis(Pelicula pelicula) {
+    public FragmentSinopsis() {
         // Required empty public constructor
-        this.pelicula = pelicula;
     }
 
 
@@ -34,12 +30,28 @@ public class FragmentSinopsis extends Fragment {
 
         textViewSinopsis = vista.findViewById(R.id.textViewFragmentSinopsis);
 
-        textViewSinopsis.setText(pelicula.getResumen());
+        Pelicula unaPelicula = recepcionarPelicula();
+        textViewSinopsis.setText(unaPelicula.getResumen());
 
 
         return vista;
     }
 
+    public static FragmentSinopsis dameUnFragment(Pelicula pelicula) {
+        FragmentSinopsis fragmentSinopsis = new FragmentSinopsis();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(CLAVE_PELICULA, pelicula);
+        fragmentSinopsis.setArguments(bundle);
+
+        return fragmentSinopsis;
+    }
+
+    private Pelicula recepcionarPelicula() {
+        Bundle bundle = getArguments();
+        Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
+
+        return peliculaSeleccionada;
+    }
 
 
 }

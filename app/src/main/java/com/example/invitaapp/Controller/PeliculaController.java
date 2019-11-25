@@ -65,11 +65,20 @@ public class PeliculaController {
 
             }
         });
+    }
+
+    public void traerListaPeliculasSimilares(Integer idMovie, final ResultListener<List<Pelicula>> listenerDeLaVista ) {
+
+        PeliculaDao peliculaDao = new PeliculaDao();
+
+        peliculaDao.traerListaPeliculasSimilares(idMovie, new ResultListener<List<Pelicula>>() {
+            @Override
+            public void finish(List<Pelicula> result) {
+
+                listenerDeLaVista.finish(result);
+            }
+        });
 
 
     }
-
-
-
-
 }

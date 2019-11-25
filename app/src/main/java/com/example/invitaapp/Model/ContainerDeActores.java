@@ -9,13 +9,11 @@ public class ContainerDeActores {
     @SerializedName("cast")
     private List<Actor>actoresList;
 
-    private List<Actor> getActorList(){
-        return actoresList;
-    }
 
-    public void setActoresList(List<Actor> actoresList) {
+
+    /*public void setActoresList(List<Actor> actoresList) {
         this.actoresList = actoresList;
-    }
+    }*/
 
     public List<Actor> getActoresList() {
         return actoresList;

@@ -1,4 +1,5 @@
 package com.example.invitaapp.View;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.example.invitaapp.Model.Pelicula;
 import com.example.invitaapp.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +23,11 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
     protected List<Pelicula> listaDePeliculas;
     private ListenerDelAdapter listenerDelAdapter;
 
-    public PeliculaAdapter(List<Pelicula> listaDePeliculas){
+    public PeliculaAdapter(List<Pelicula> listaDePeliculas) {
         this.listaDePeliculas = listaDePeliculas;
     }
 
-    public PeliculaAdapter(ListenerDelAdapter listenerDelAdapter){
+    public PeliculaAdapter(ListenerDelAdapter listenerDelAdapter) {
         this.listaDePeliculas = new ArrayList<>();
         this.listenerDelAdapter = listenerDelAdapter;
     }
@@ -33,9 +35,9 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
     @NonNull
     @Override
     public PeliculaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         LayoutInflater inflador = LayoutInflater.from(parent.getContext());
-        View vista = inflador.inflate(R.layout.celda_pelicula,parent,false);
+        View vista = inflador.inflate(R.layout.celda_pelicula, parent, false);
+
         PeliculaViewHolder peliculaViewHolder = new PeliculaViewHolder(vista);
 
         return peliculaViewHolder;
@@ -44,7 +46,6 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
     @Override
     public void onBindViewHolder(@NonNull PeliculaViewHolder holder, int position) {
         Pelicula unaPeliculaDeLaLista = listaDePeliculas.get(position);
-      //  holder.CargarNombrePelicula(unaPeliculaDeLaLista);
         holder.CargarImagen(unaPeliculaDeLaLista);
     }
 
@@ -61,7 +62,6 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
 
     public class PeliculaViewHolder extends RecyclerView.ViewHolder {
 
-       // private TextView textViewPelicula;
         private ImageView imageViewPelicula;
 
         public PeliculaViewHolder(@NonNull final View itemView) {
@@ -90,17 +90,15 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
 
 
         }
-        public void CargarImagen(Pelicula pelicula){
+
+        public void CargarImagen(Pelicula pelicula) {
             Glide.with(imageViewPelicula.getContext()).load(pelicula.generarUrlImagen()).placeholder(R.drawable.cargando).into(imageViewPelicula);
         }
 
-        public void CargarNombrePelicula(Pelicula pelicula){
-//            textViewPelicula.setText(pelicula.getTitulo());
-        }
     }
 
-    public interface ListenerDelAdapter{
-        public void informarPeliculaSeleccionada (Pelicula pelicula);
+    public interface ListenerDelAdapter {
+        public void informarPeliculaSeleccionada(Pelicula pelicula);
     }
 
     public List<Pelicula> getListaDePeliculas() {
