@@ -1,4 +1,5 @@
 package com.example.invitaapp.View;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -79,6 +80,12 @@ public class FragmentPeliculasSimilares extends Fragment implements PeliculaAdap
     @Override
     public void informarPeliculaSeleccionada(Pelicula pelicula) {
         listenerDelFragment.recibirPelicula(pelicula);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listenerDelFragment = (ListenerDelFragment) context;
     }
 
     public interface ListenerDelFragment {

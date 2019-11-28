@@ -48,14 +48,17 @@ public class FragmentDetallePelicula extends Fragment {
 
         Pelicula unaPelicula = recepcionarPelicula();
 
+
         textViewTitulo.setText(unaPelicula.getTitulo());
         CargarImagen(unaPelicula);
 
         DetallePeliculaViewPagerAdapter detallePeliculaViewPagerAdapter = new DetallePeliculaViewPagerAdapter(getActivity().getSupportFragmentManager(),unaPelicula);
         viewPagerDetallePelicula.setAdapter(detallePeliculaViewPagerAdapter);
         tabLayoutDetallePelicula.setupWithViewPager(viewPagerDetallePelicula);
+
         return vistaFragment;
     }
+
 
     private Pelicula recepcionarPelicula() {
 
@@ -76,8 +79,6 @@ public class FragmentDetallePelicula extends Fragment {
     public void CargarImagen(Pelicula pelicula){
         Glide.with(imageViewFotoPeli.getContext()).load(pelicula.generarUrlImagenDetalle()).placeholder(R.drawable.cargando).into(imageViewFotoPeli);
     }
-
-
 
 
 

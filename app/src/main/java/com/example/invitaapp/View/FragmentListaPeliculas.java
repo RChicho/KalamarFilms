@@ -62,7 +62,7 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
        @Override
        public void finish(List<Pelicula> result) {
            peliculaAdapter1.setPeliculaList(result);
-           textViewNombreGenero1.setText("TRANDING");
+           textViewNombreGenero1.setText("TRENDING");
 
        }
    });

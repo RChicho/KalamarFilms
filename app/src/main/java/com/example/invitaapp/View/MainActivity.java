@@ -35,7 +35,7 @@ import org.json.JSONObject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class MainActivity extends AppCompatActivity implements FragmentListaPeliculas.ListenerDelFragment, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements FragmentListaPeliculas.ListenerDelFragment, NavigationView.OnNavigationItemSelectedListener ,FragmentPeliculasSimilares.ListenerDelFragment{
 
 
     private DrawerLayout drawerLayout;

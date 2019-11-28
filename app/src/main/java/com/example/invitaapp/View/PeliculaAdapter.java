@@ -80,13 +80,13 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
                 }
             });
 
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            /*itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
                     Toast.makeText(itemView.getContext(), listaDePeliculas.get(getAdapterPosition()).getTitulo(), Toast.LENGTH_SHORT).show();
                     return false;
                 }
-            });
+            });*/
 
 
         }
@@ -101,7 +101,9 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
         public void informarPeliculaSeleccionada(Pelicula pelicula);
     }
 
-    public List<Pelicula> getListaDePeliculas() {
+   /* public List<Pelicula> getListaDePeliculas() {
         return listaDePeliculas;
-    }
+    }*/
+
+
 }
