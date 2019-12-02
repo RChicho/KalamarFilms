@@ -35,7 +35,7 @@ import org.json.JSONObject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class MainActivity extends AppCompatActivity implements FragmentListaPeliculas.ListenerDelFragment, NavigationView.OnNavigationItemSelectedListener ,FragmentPeliculasSimilares.ListenerDelFragment{
+public class MainActivity extends AppCompatActivity implements FragmentListaPeliculas.ListenerDelFragment, NavigationView.OnNavigationItemSelectedListener, FragmentPeliculasSimilares.ListenerDelFragment {
 
 
     private DrawerLayout drawerLayout;
@@ -48,33 +48,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //FacebookSdk.sdkInitialize(this.getApplicationContext());
-        //AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
 
-
         encontrarVistas();
-//        AccessToken accessToken= AccessToken.getCurrentAccessToken();
-      /*  GraphRequest request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
-            @Override
-            public void onCompleted(JSONObject object, GraphResponse response) {
-                try{
-                    String email = object.getString("email");
-                    String birthday = object.getString("birthday");
-                } catch (JsonIOException e){
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields","id,name,email,gender,birthday");
-        request.setParameters(parameters);
-        request.executeAsync();*/
-
-
-        //pegarFragment(new FragmentListaPeliculas());
 
 
         pegarPrimerFragment(new FragmentListaPeliculas());
@@ -205,24 +181,5 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
 
 
 
-    public void obtenerKeyHash() {
-        String keyHash = "";
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                keyHash = Base64.encodeToString(md.digest(), Base64.DEFAULT);
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        System.out.println("MI KEY HASH: " + keyHash);}}
 
-
-
-
-
-
+}
