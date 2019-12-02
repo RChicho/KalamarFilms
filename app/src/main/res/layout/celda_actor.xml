@@ -34,7 +34,8 @@
                 android:text="Personaje: "
                 android:textColor="#807F7F"
                 android:textSize="19dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewNombrePersonaje"
@@ -43,8 +44,8 @@
                 android:scaleType="centerCrop"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
-
-                android:textSize="19dp" />
+                android:textStyle="italic"
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -62,7 +63,9 @@
                 android:text="Actor: "
                 android:textColor="#7A7676"
                 android:textSize="19dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/textViewNombreActor"
@@ -70,8 +73,9 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:textColor="#FFFFFF"
-                android:textSize="19dp"
-                android:gravity="center"/>
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textStyle="italic"/>
 
 
         </LinearLayout>

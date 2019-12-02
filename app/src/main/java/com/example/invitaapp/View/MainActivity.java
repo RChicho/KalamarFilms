@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setBackgroundColor(getResources().getColor(R.color.negro));
+
 
         ActionBar supportActionBar = getSupportActionBar();
         supportActionBar.setIcon(R.drawable.toolbar_kalamar);

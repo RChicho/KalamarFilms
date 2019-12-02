@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.FragmentPeliculasSimilares">
+    tools:context=".View.FragmentPeliculasSimilares"
+    android:gravity="center_vertical">
 
   <androidx.recyclerview.widget.RecyclerView
       android:layout_width="match_parent"
