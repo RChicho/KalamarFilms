@@ -34,13 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonRegistrarLogin;
     private Button buttonIngresarLogin;
     private FirebaseAuth mAuth;
-    private CallbackManager callbackManager;
-    private LoginButton loginButton;
-
 
     public static final String CLAVE = "CLAVE";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getIntent();
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
 
-
+        encontrarComponentes();
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -68,34 +61,6 @@ public class LoginActivity extends AppCompatActivity {
                 validacionDeLogin();
             }
         });
-
-        callbackManager=CallbackManager.Factory.create();
-        encontrarComponentes();
-        loginButton.setReadPermissions(Arrays.asList(
-                "public_profile", "email","user_birthday","user_friends"
-        ));
-
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-            Toast.makeText(LoginActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(LoginActivity.this, "pasaron cosas", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-
-
     }
 
 
@@ -150,7 +115,6 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             irAlHomeDeLaApp(user.getEmail());
                             Toast.makeText(LoginActivity.this, "USUARIO REGISTRADO", Toast.LENGTH_SHORT).show();
-
                         } else {
                             Toast.makeText(LoginActivity.this, "El usuario no pudo registrarse", Toast.LENGTH_SHORT).show();
                         }
@@ -169,22 +133,6 @@ public class LoginActivity extends AppCompatActivity {
             irAlHomeDeLaApp(currentUser.getEmail());
         }
     }
-
-
-
-
-
-    /*private void cambiarDeActivity(){
-
-       // String username = null;
-        Intent intent = new Intent(this,MainActivity.class);
-        //Bundle bundle = new Bundle();
-        //bundle.putString(MainActivity.CLAVE_LOGIN, username);
-        //intent.putExtras(bundle);
-        limpiarCampos();
-        startActivity(intent);
-    }*/
-
 
     private void irAlHomeDeLaApp(String userName) {
 
@@ -209,18 +157,9 @@ public class LoginActivity extends AppCompatActivity {
         editTextPasswordLogin = findViewById(R.id.editTextFragmentLoginPassword);
         buttonIngresarLogin = findViewById(R.id.ButtonLoginFragmentIngresar);
         buttonRegistrarLogin = findViewById(R.id.ButtonLoginFragmentRegistrar);
-        loginButton = findViewById(R.id.login_button);
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
 
 
 
 }
-
