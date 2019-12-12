@@ -21,7 +21,8 @@ public class DetallePeliculaViewPagerAdapter extends FragmentStatePagerAdapter {
         listaFragmentDetallePelicula.add(FragmentSinopsis.dameUnFragment(pelicula));
         listaFragmentDetallePelicula.add(FragmentDetalleActor.dameUnFragment(pelicula));
         listaFragmentDetallePelicula.add(FragmentPeliculasSimilares.dameUnFragment(pelicula));
-        listaFragmentDetallePelicula.add(new FragmentRojo());
+        listaFragmentDetallePelicula.add(FragmentYouTube.dameUnFragment(pelicula));
+       // listaFragmentDetallePelicula.add(new FragmentRojo());
 
     }
 
