@@ -56,6 +56,11 @@ public class FragmentDetallePelicula extends Fragment {
         viewPagerDetallePelicula.setAdapter(detallePeliculaViewPagerAdapter);
         tabLayoutDetallePelicula.setupWithViewPager(viewPagerDetallePelicula);
 
+
+       /*if(quiereTrailer){
+            viewPagerDetallePelicula.setCurrentItem(3);
+        }*/
+
         return vistaFragment;
     }
 

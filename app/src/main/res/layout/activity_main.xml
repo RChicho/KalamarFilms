@@ -37,13 +37,12 @@
             android:layout_gravity="start"
             app:headerLayout="@layout/header_navigation"
             app:menu="@menu/menu_principal"
-            app:itemTextColor="#FFAB00"
+            app:itemTextColor="#A9807F7D"
+            android:contextClickable="true"
             >
 
         </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
-
-
 </LinearLayout>
 
 

@@ -22,7 +22,7 @@
         android:layout_marginTop="50dp"
         android:background="#FFF"
         android:gravity="center"
-        android:hint="User"
+        android:hint="Usuario"
         android:textColorHint="#000"
         android:textStyle="bold"
         />
@@ -35,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:background="#FFF"
         android:gravity="center"
-        android:hint="Password"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         android:textColorHint="#000"
         android:textStyle="bold"
@@ -46,8 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:background="#853203"
+        android:layout_marginTop="80dp"
+        android:background="#A09E9D"
         android:text="REGISTRAR"
         android:textSize="15dp"
         />
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="#853203"
+        android:background="#A3A09F"
         android:text="INGRESAR"
         android:textSize="15dp" />
 

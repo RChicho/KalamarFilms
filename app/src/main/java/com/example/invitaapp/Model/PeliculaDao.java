@@ -123,7 +123,6 @@ public void traerPeliculasTrailer(Integer idPelicula, final ResultListener<List<
              @Override
              public void onFailure(Call<ContainerDeTrailers> call, Throwable t) {
 
-
              }
          });
 }

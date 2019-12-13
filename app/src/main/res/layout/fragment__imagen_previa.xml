@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.ImagenPreviaListaPeliculaFragment"
     android:orientation="vertical"
-    android:id="@+id/ContenedorImagenFotoPreviaFregment"
-    >
+    android:id="@+id/ContenedorImagenFotoPreviaFregment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -14,7 +14,17 @@
         android:id="@+id/imageViewImagenPreviaFragment"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_play_circle_filled_black_24dp"
+        android:clickable="true"
+        app:layout_anchor="@id/imageViewImagenPreviaFragment"
+        android:id="@+id/floatingActionButtonImagenPreviaFragment"
+        app:layout_anchorGravity="right|bottom"
+        />
 
 
 
-</LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
