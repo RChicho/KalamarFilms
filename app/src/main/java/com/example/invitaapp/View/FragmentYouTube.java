@@ -1,6 +1,4 @@
 package com.example.invitaapp.View;
-
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,24 +8,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.invitaapp.Controller.PeliculaController;
 import com.example.invitaapp.Model.Pelicula;
+import com.example.invitaapp.Model.Trailer;
 import com.example.invitaapp.R;
+import com.example.invitaapp.Utils.ResultListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import java.util.List;
+
 public class FragmentYouTube extends Fragment {
 
+    private String keyApiYouTube;
+    private PeliculaController peliculaController;
     private YouTubePlayerView youTubePlayerView;
     public static final String CLAVE_PELICULA = "CLAVE_PELICULA";
 
-
-    public FragmentYouTube() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -38,11 +36,24 @@ public class FragmentYouTube extends Fragment {
 
         YouTubePlayerView youTubePlayerView = vista.findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
+        Pelicula peliculaSeleccionada = recepcionarPelicula();
+        Integer idPelicula = peliculaSeleccionada.getId();
+        peliculaController = new PeliculaController();
+        peliculaController.traerTrailerPeliculas(idPelicula, new ResultListener<List<Trailer>>() {
+            @Override
+            public void finish(List<Trailer> result) {
+
+                keyApiYouTube = result.get(0).getClavePelicula();
+
+            }
+        });
+
+
 
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                String videoId = "S0Q4gqBUs7c";
+                String videoId = keyApiYouTube;
                 youTubePlayer.loadVideo(videoId, 0);
             }
         });
@@ -54,9 +65,15 @@ public class FragmentYouTube extends Fragment {
         FragmentYouTube fragmentYouTube = new FragmentYouTube();
         Bundle bundle = new Bundle();
         bundle.putSerializable(CLAVE_PELICULA, pelicula);
-       fragmentYouTube.setArguments(bundle);
+        fragmentYouTube.setArguments(bundle);
 
         return fragmentYouTube;
+    }
+
+    private Pelicula recepcionarPelicula() {
+        Bundle bundle = getArguments();
+        Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
+        return peliculaSeleccionada;
     }
 
 }

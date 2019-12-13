@@ -4,8 +4,10 @@ import androidx.annotation.Nullable;
 
 import com.example.invitaapp.Model.Actor;
 import com.example.invitaapp.Model.ActorAdapter;
+import com.example.invitaapp.Model.ContainerDeTrailers;
 import com.example.invitaapp.Model.Pelicula;
 import com.example.invitaapp.Model.PeliculaDao;
+import com.example.invitaapp.Model.Trailer;
 import com.example.invitaapp.Utils.ResultListener;
 
 import java.util.Collection;
@@ -81,4 +83,16 @@ public class PeliculaController {
 
 
     }
+
+    public void traerTrailerPeliculas(Integer id, final ResultListener<List<Trailer>> listenerDeLaVista){
+        PeliculaDao peliculaDao = new PeliculaDao();
+        peliculaDao.traerPeliculasTrailer(id, new ResultListener<List<Trailer>>() {
+            @Override
+            public void finish(List<Trailer> result) {
+                listenerDeLaVista.finish(result);
+            }
+        });
+
+    }
+
 }
