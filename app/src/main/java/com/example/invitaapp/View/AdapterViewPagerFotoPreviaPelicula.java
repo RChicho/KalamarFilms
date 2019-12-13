@@ -25,6 +25,8 @@ public class AdapterViewPagerFotoPreviaPelicula extends FragmentStatePagerAdapte
     }
 
 
+
+
     @Override
     public Fragment getItem(int position) {
         return listaDeFragment.get(position);

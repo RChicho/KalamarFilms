@@ -35,9 +35,14 @@ public class FragmentYouTube extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_fragment_you_tube, container, false);
 
         youTubePlayerView = vista.findViewById(R.id.youtube_player_view);
+
+        YouTubePlayerView youTubePlayerView = vista.findViewById(R.id.youtube_player_view);
+
         getLifecycle().addObserver(youTubePlayerView);
+
         Pelicula peliculaSeleccionada = recepcionarPelicula();
         Integer idPelicula = peliculaSeleccionada.getId();
+
         peliculaController = new PeliculaController();
         peliculaController.traerTrailerPeliculas(idPelicula, new ResultListener<List<Trailer>>() {
             @Override

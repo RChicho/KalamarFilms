@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    >
 
     <ImageView
         android:id="@+id/imageViewImagenActor"
-        android:layout_width="150dp"
+        android:layout_width="125dp"
         android:layout_height="match_parent"
         android:layout_gravity="center|left"
         android:layout_marginRight="2dp"
@@ -17,14 +19,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="55dp"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:gravity="center">
 
             <TextView
@@ -34,24 +36,24 @@
                 android:text="Personaje: "
                 android:textColor="#807F7F"
                 android:textSize="19dp"
-                android:gravity="center"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewNombrePersonaje"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:textColor="#FFFFFF"
-                android:gravity="center"
+                android:layout_marginLeft="15dp"
                 android:textStyle="italic"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="73dp"
+            android:layout_height="75dp"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
             android:gravity="center">
@@ -61,9 +63,9 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:text="Actor: "
+                android:layout_marginLeft="40dp"
                 android:textColor="#7A7676"
                 android:textSize="19dp"
-                android:gravity="center"
                 android:textStyle="bold"
                 />
 
@@ -71,15 +73,14 @@
                 android:id="@+id/textViewNombreActor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
-                android:gravity="center"
-                android:textStyle="italic"/>
+                android:layout_marginLeft="15dp"
+                android:textStyle="italic"
+                android:scaleType="centerCrop"
+                />
 
 
         </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

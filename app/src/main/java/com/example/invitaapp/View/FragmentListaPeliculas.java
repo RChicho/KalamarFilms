@@ -23,10 +23,10 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
     private RecyclerView recyclerViewFragmentListaPeliculas;
     private RecyclerView recyclerViewFragmentListaPeliculas2;
     private RecyclerView recyclerViewFragmentListaPeliculas3;
-    private RecyclerView recyclerViewFragmentListaPeliculas4;
     private TextView textViewNombreGenero1;
     private TextView textViewNombreGenero2;
     private TextView textViewNombreGenero3;
+    private PeliculaController peliculaController;
     private ListenerDelFragment listenerDelFragment;
     private ViewPager viewPagerImagenPrevia;
     private AdapterViewPagerFotoPreviaPelicula adapterViewPagerFotoPreviaPelicula;
@@ -52,9 +52,7 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
         final PeliculaAdapter peliculaAdapter1 = new PeliculaAdapter(this);
         final PeliculaAdapter peliculaAdapter2 = new PeliculaAdapter(this);
         final PeliculaAdapter peliculaAdapter3 = new PeliculaAdapter(this);
-        final PeliculaAdapter peliculaAdapter4 = new PeliculaAdapter(this);
-
-        final PeliculaController peliculaController = new PeliculaController();
+        peliculaController = new PeliculaController();
 
 
    peliculaController.traerPeliculas(new ResultListener<List<Pelicula>>() {
@@ -89,7 +87,7 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        LinearLayoutManager linearLayoutManager4 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+
 
         recyclerViewFragmentListaPeliculas.setLayoutManager(linearLayoutManager);
         recyclerViewFragmentListaPeliculas.setAdapter(peliculaAdapter1);
@@ -99,10 +97,6 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
 
         recyclerViewFragmentListaPeliculas3.setLayoutManager(linearLayoutManager3);
         recyclerViewFragmentListaPeliculas3.setAdapter(peliculaAdapter3);
-
-        recyclerViewFragmentListaPeliculas4.setLayoutManager(linearLayoutManager4);
-        recyclerViewFragmentListaPeliculas4.setAdapter(peliculaAdapter4);
-
 
 
         return vistaDelFragment;
@@ -153,7 +147,6 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
         recyclerViewFragmentListaPeliculas = view.findViewById(R.id.RecyclerViewFragmentListaPeliculasXML);
         recyclerViewFragmentListaPeliculas2= view.findViewById(R.id.RecyclerViewFragmentListaPeliculas2);
         recyclerViewFragmentListaPeliculas3= view.findViewById(R.id.RecyclerViewFragmentListaPeliculas3);
-        recyclerViewFragmentListaPeliculas4=view.findViewById(R.id.RecyclerViewFragmentListaPeliculas4);
         textViewNombreGenero1 = view.findViewById(R.id.TextViewTipoDeGenero1);
         textViewNombreGenero2 = view.findViewById(R.id.TextViewTipoDeGenero2);
         textViewNombreGenero3 = view.findViewById(R.id.TextViewTipoDeGenero3);

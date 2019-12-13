@@ -33,7 +33,4 @@ public interface PeliculaService {
     @GET("3/movie/{id}/videos?api_key=25ac4313f0c6a0579d228b6da85f955f&language=en-US")
     Call<ContainerDeTrailers>traerTrailerPelicula(@Path("id") int idPelicula);
 
-
-  /*  @GET()
-    Call<ContainerDeActores> traerListaDeActores();*/
 }

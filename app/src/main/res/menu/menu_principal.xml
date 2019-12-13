@@ -8,6 +8,6 @@
         android:id="@+id/menuPrincipal_favoritos"></item>
     <item android:title="Acerca de Kalamar"
         android:id="@+id/menuPrincipal_acerca_calamar"></item>
-    <item android:title="Log Out"
+    <item android:title="Cerrar Sesion"
         android:id="@+id/menuPrincipal_logout"></item>
 </menu>
