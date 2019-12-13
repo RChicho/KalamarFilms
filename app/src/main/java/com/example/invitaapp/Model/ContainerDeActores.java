@@ -10,11 +10,6 @@ public class ContainerDeActores {
     private List<Actor>actoresList;
 
 
-
-    /*public void setActoresList(List<Actor> actoresList) {
-        this.actoresList = actoresList;
-    }*/
-
     public List<Actor> getActoresList() {
         return actoresList;
     }

@@ -27,7 +27,6 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
     private TextView textViewNombreGenero1;
     private TextView textViewNombreGenero2;
     private TextView textViewNombreGenero3;
-    private TextView textViewNombreGenero4;
     private ListenerDelFragment listenerDelFragment;
     private ViewPager viewPagerImagenPrevia;
     private AdapterViewPagerFotoPreviaPelicula adapterViewPagerFotoPreviaPelicula;
@@ -127,7 +126,6 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
 
         handler.postDelayed(runnable, delay);
         setListenerDelViewPager();
-
     }
 
     private  void setListenerDelViewPager(){
@@ -159,7 +157,6 @@ public class FragmentListaPeliculas extends Fragment implements PeliculaAdapter.
         textViewNombreGenero1 = view.findViewById(R.id.TextViewTipoDeGenero1);
         textViewNombreGenero2 = view.findViewById(R.id.TextViewTipoDeGenero2);
         textViewNombreGenero3 = view.findViewById(R.id.TextViewTipoDeGenero3);
-        textViewNombreGenero4 = view.findViewById(R.id.TextViewTipoDeGenero4);
         viewPagerImagenPrevia = view.findViewById(R.id.ViewPagerSoloImagenes);
     }
 

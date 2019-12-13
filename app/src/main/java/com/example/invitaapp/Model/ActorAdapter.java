@@ -52,9 +52,6 @@ public class ActorAdapter extends RecyclerView.Adapter<ActorAdapter.ActorViewHol
         return listaDeActores.size();
     }
 
-   /* public List<Actor> getListaDeActores() {
-        return listaDeActores;
-    }*/
 
     public void setListaDeActores(List<Actor> listaDeActores) {
         this.listaDeActores = listaDeActores;
@@ -66,7 +63,6 @@ public class ActorAdapter extends RecyclerView.Adapter<ActorAdapter.ActorViewHol
         private TextView textViewActorNombre;
         private ImageView imageViewActor;
         private TextView textViewActorPersonaje;
-        private TextView textViewEdadActor;
 
 
         public ActorViewHolder(@NonNull View itemView) {
@@ -75,21 +71,12 @@ public class ActorAdapter extends RecyclerView.Adapter<ActorAdapter.ActorViewHol
             imageViewActor = itemView.findViewById(R.id.imageViewImagenActor);
             textViewActorPersonaje = itemView.findViewById(R.id.textViewNombrePersonaje);
 
-           /* itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Actor actorSeleccionado = listaDeActores.get(getAdapterPosition());
-
-                }
-            });*/
-
         }
 
         public void CargarDatos(Actor actor) {
             Glide.with(imageViewActor.getContext()).load(actor.getUrlImagenActor()).placeholder(R.drawable.cargando).into(imageViewActor);
             textViewActorNombre.setText(actor.getNombreDelActor());
             textViewActorPersonaje.setText(actor.getNombreDelPersonaje());
-            //textViewEdadActor.setText("Edad: " );
         }
 
     }

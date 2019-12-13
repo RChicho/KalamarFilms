@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/DetallePeliculaTextViewTitulo"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="45dp"
         android:gravity="center"
         android:text="TITULO PELICULA"
         android:textColor="#FFAB00"
@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/ImageViewDetallePeliculaFoto"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:src="@drawable/cargando" />
 
     <com.google.android.material.tabs.TabLayout

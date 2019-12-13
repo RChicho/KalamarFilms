@@ -109,24 +109,5 @@ public class PeliculaDao extends PeliculaRetrofitDAO{
     }
 
 
-   /* public void traerListaDeGeneros(final ResultListener<List<Genero>> listenerDelControler) {
-
-        Call<ConteinerGeneros> call =  peliculaService.traerListaDeGeneros();
-
-        call.enqueue(new Callback<ConteinerGeneros>() {
-            @Override
-            public void onResponse(Call<ConteinerGeneros> call, Response<ConteinerGeneros> response) {
-                ConteinerGeneros conteinerGeneros = response.body();
-                listenerDelControler.finish(conteinerGeneros.getGeneroList());
-
-            }
-
-            @Override
-            public void onFailure(Call<ConteinerGeneros> call, Throwable t) {
-                Log.d("ddd","");
-            }
-        });
-    }*/
-
 
 }

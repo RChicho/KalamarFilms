@@ -1,6 +1,4 @@
 package com.example.invitaapp.View;
-
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,10 +9,11 @@ import android.view.ViewGroup;
 
 import com.example.invitaapp.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import java.util.List;
+
 public class FavoritosFragment extends Fragment {
+
+
 
 
     public FavoritosFragment() {

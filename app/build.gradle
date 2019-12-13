@@ -42,5 +42,11 @@ dependencies {
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.23'
 
     implementation 'com.emmanuelkehinde:shutdown:1.0.1'
+
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    def room_version = '2.2.2'
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 }
 apply plugin: 'com.google.gms.google-services'

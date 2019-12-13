@@ -6,10 +6,6 @@
         android:id="@+id/menuPrincipal_perfil"></item>
     <item android:title="Favoritos"
         android:id="@+id/menuPrincipal_favoritos"></item>
-    <item android:title="Settings"
-        android:id="@+id/menuPrincipal_settings"></item>
-    <item android:title="juegos"
-        android:id="@+id/menuPrincipal_juegos"></item>
     <item android:title="Acerca de Kalamar"
         android:id="@+id/menuPrincipal_acerca_calamar"></item>
     <item android:title="Log Out"
