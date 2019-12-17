@@ -25,7 +25,7 @@ public class FragmentPeliculasSimilares extends Fragment implements PeliculaAdap
     private RecyclerView recyclerView;
     private ListenerDelFragment listenerDelFragment;
 
-    public static final String CLAVE_PELICULA = "CLAVE_PELICULA";
+    public static final String CLAVE_PELICULA_SIMILARES = "CLAVE_PELICULA";
 
 
     public FragmentPeliculasSimilares() {
@@ -65,7 +65,7 @@ public class FragmentPeliculasSimilares extends Fragment implements PeliculaAdap
     public static FragmentPeliculasSimilares dameUnFragment(Pelicula pelicula) {
         FragmentPeliculasSimilares fragmentPeliculasSimilares = new FragmentPeliculasSimilares();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(CLAVE_PELICULA, pelicula);
+        bundle.putSerializable(CLAVE_PELICULA_SIMILARES, pelicula);
         fragmentPeliculasSimilares.setArguments(bundle);
 
         return fragmentPeliculasSimilares;
@@ -73,7 +73,7 @@ public class FragmentPeliculasSimilares extends Fragment implements PeliculaAdap
 
     private Pelicula recepcionarPelicula() {
         Bundle bundle = getArguments();
-        Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
+        Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA_SIMILARES);
         return peliculaSeleccionada;
     }
 

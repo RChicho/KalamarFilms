@@ -14,7 +14,7 @@
         android:id="@+id/imageViewImagenPreviaFragment"
         />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_play_circle_filled_black_24dp"
@@ -22,7 +22,7 @@
         app:layout_anchor="@id/imageViewImagenPreviaFragment"
         android:id="@+id/floatingActionButtonImagenPreviaFragment"
         app:layout_anchorGravity="right|bottom"
-        />
+        />-->
 
 
 

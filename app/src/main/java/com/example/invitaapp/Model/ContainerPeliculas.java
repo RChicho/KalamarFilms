@@ -1,6 +1,7 @@
 package com.example.invitaapp.Model;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContainerPeliculas {
@@ -24,5 +25,19 @@ public class ContainerPeliculas {
         this.urlImagen = urlImagen;
     }
 
+    public ContainerPeliculas() {
+        peliculaList = new ArrayList<>();
+    }
 
+
+    public void agregarPelicula(Pelicula pelicula){
+        peliculaList.add(pelicula);
+    }
+    public void removerPelicula(Pelicula pelicula){
+        peliculaList.remove(pelicula);
+    }
+
+    public Boolean contieneLaPelicula(Pelicula pelicula){
+        return peliculaList.contains(pelicula);
+    }
 }

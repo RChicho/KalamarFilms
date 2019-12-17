@@ -108,7 +108,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
                 break;
 
             case R.id.menuPrincipal_favoritos:
-                Toast.makeText(this, "PROXIMAMENTE PAG FAVORITOS", Toast.LENGTH_SHORT).show();
+                pegarFragment(new Favoritos());
+                drawerLayout.closeDrawers();
                 break;
 
             case R.id.menuPrincipal_acerca_calamar:

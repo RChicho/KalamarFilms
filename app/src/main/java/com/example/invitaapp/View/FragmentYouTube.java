@@ -24,7 +24,7 @@ public class FragmentYouTube extends Fragment {
     private String keyApiYouTube;
     private PeliculaController peliculaController;
     private YouTubePlayerView youTubePlayerView;
-    public static final String CLAVE_PELICULA = "CLAVE_PELICULA";
+    public static final String CLAVE_PELICULA_YOUTUBE = "CLAVE_PELICULA";
 
 
 
@@ -67,7 +67,7 @@ public class FragmentYouTube extends Fragment {
     public static FragmentYouTube dameUnFragment(Pelicula pelicula) {
         FragmentYouTube fragmentYouTube = new FragmentYouTube();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(CLAVE_PELICULA, pelicula);
+        bundle.putSerializable(CLAVE_PELICULA_YOUTUBE, pelicula);
         fragmentYouTube.setArguments(bundle);
 
         return fragmentYouTube;
@@ -75,7 +75,7 @@ public class FragmentYouTube extends Fragment {
 
     private Pelicula recepcionarPelicula() {
         Bundle bundle = getArguments();
-        Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
+        Pelicula peliculaSeleccionada = (Pelicula) bundle.getSerializable(CLAVE_PELICULA_YOUTUBE);
         return peliculaSeleccionada;
     }
 

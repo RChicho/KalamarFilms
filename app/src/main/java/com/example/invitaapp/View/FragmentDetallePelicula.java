@@ -8,9 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.example.invitaapp.Controller.FirestoreController;
 import com.example.invitaapp.Model.Pelicula;
 import com.example.invitaapp.R;
+import com.example.invitaapp.Utils.ResultListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
 
 public class FragmentDetallePelicula extends Fragment {
 
@@ -18,6 +23,11 @@ public class FragmentDetallePelicula extends Fragment {
     private ImageView imageViewFotoPeli;
     private TabLayout tabLayoutDetallePelicula;
     private ViewPager viewPagerDetallePelicula;
+    private FloatingActionButton botonFav;
+    private FirestoreController firestoreController;
+    private Boolean esFavorita;
+    private Pelicula peliculaSeleccionada;
+
 
     public static final String CLAVE_PELICULA = "CLAVE_PELICULA";
 
@@ -61,6 +71,26 @@ public class FragmentDetallePelicula extends Fragment {
             viewPagerDetallePelicula.setCurrentItem(3);
         }*/
 
+        botonFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firestoreController.agregarPeliculaAFav(peliculaSeleccionada);
+                esFavorita = !esFavorita;
+                actualizarFav();
+            }
+        });
+
+        firestoreController.traerListaDeFavorito(new ResultListener<List<Pelicula>>() {
+            @Override
+            public void finish(List<Pelicula> result) {
+                esFavorita = result.contains(peliculaSeleccionada);
+                actualizarFav();
+                habilitarOnClickDeFav();
+            }
+        });
+        botonFav.setClickable(false);
+
+
         return vistaFragment;
     }
 
@@ -79,12 +109,25 @@ public class FragmentDetallePelicula extends Fragment {
         imageViewFotoPeli = vistaFragment.findViewById(R.id.ImageViewDetallePeliculaFoto);
         tabLayoutDetallePelicula = vistaFragment.findViewById(R.id.tabLayoutFragmentDetallePelicula);
         viewPagerDetallePelicula = vistaFragment.findViewById(R.id.viewPagerFragmentDetallePelicula);
+        botonFav = vistaFragment.findViewById(R.id.)
     }
 
     public void CargarImagen(Pelicula pelicula){
         Glide.with(imageViewFotoPeli.getContext()).load(pelicula.generarUrlImagenDetalle()).placeholder(R.drawable.cargando).into(imageViewFotoPeli);
     }
 
+    private void habilitarOnClickDeFav() {
+        botonFav.setClickable(true);
+    }
 
+    private void actualizarFav(){
+        if (esFavorita){
+            botonFav.setImageResource(R.drawable.ic_favorite_black_24dp_full);
+        }
+        else
+        {
+            botonFav.setImageResource(R.drawable.ic_favorite_border_black_24dp_vacio);
+        }
+    }
 
 }
