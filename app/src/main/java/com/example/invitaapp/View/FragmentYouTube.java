@@ -34,8 +34,10 @@ public class FragmentYouTube extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_fragment_you_tube, container, false);
 
+        youTubePlayerView = vista.findViewById(R.id.youtube_player_view);
 
         YouTubePlayerView youTubePlayerView = vista.findViewById(R.id.youtube_player_view);
+
         getLifecycle().addObserver(youTubePlayerView);
 
         Pelicula peliculaSeleccionada = recepcionarPelicula();
@@ -56,8 +58,10 @@ public class FragmentYouTube extends Fragment {
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+
                 String videoId = keyApiYouTube;
                 youTubePlayer.loadVideo(videoId, 0);
+                youTubePlayer.play();
             }
         });
 

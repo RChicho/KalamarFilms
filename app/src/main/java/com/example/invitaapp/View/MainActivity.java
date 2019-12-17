@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
-        return true;
+        return false;
     }
 
     private void pegarFragment(Fragment fragment) {
