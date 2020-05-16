@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class Pelicula implements Serializable {
 
@@ -36,6 +37,9 @@ public class Pelicula implements Serializable {
         this.id = id;
         this.urlImagenDetalle = urlImagenDetalle;
 
+    }
+
+    public Pelicula() {
     }
 
     public String getResumen() {
@@ -73,5 +77,18 @@ public class Pelicula implements Serializable {
 
     public String generarUrlImagenDetalle(){
         return BASE_URL_IMAGEN_DETALLE + urlImagenDetalle;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pelicula pelicula = (Pelicula) o;
+        return Objects.equals(titulo, pelicula.titulo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo);
     }
 }

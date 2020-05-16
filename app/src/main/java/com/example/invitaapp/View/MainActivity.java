@@ -1,4 +1,5 @@
 package com.example.invitaapp.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -6,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.invitaapp.Model.FirestoreDao;
 import com.example.invitaapp.Model.Pelicula;
 import com.example.invitaapp.R;
 import com.facebook.AccessToken;
@@ -21,6 +24,8 @@ import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.JsonIOException;
 
 import android.content.pm.PackageInfo;
@@ -35,12 +40,14 @@ import org.json.JSONObject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class MainActivity extends AppCompatActivity implements FragmentListaPeliculas.ListenerDelFragment, NavigationView.OnNavigationItemSelectedListener, FragmentPeliculasSimilares.ListenerDelFragment {
+public class MainActivity extends AppCompatActivity implements FragmentListaPeliculas.ListenerDelFragment, NavigationView.OnNavigationItemSelectedListener, FragmentPeliculasSimilares.ListenerDelFragment, Favoritos.ListenerDelFragment {
 
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private FirebaseFirestore firestore;
+    private FirebaseUser currentUser;
 
     public static final String CLAVE_LOGIN = "clave_login";
 
@@ -51,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
         setContentView(R.layout.activity_main);
 
         encontrarVistas();
+        firestore = FirebaseFirestore.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
         pegarPrimerFragment(new FragmentListaPeliculas());
@@ -108,8 +117,12 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
                 break;
 
             case R.id.menuPrincipal_favoritos:
-                pegarFragment(new Favoritos());
-                drawerLayout.closeDrawers();
+                if (currentUser != null) {
+                    pegarFragment(new Favoritos());
+                    drawerLayout.closeDrawers();
+                }else{
+                    Toast.makeText(this, "DEBE REGISTRARSE PARA VER LOS FAVORITOS", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.menuPrincipal_acerca_calamar:
@@ -141,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
                 .addToBackStack(null)
                 .commit();
     }
+
     private void pegarPrimerFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -173,8 +187,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListaPeli
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
-
 
 
 }

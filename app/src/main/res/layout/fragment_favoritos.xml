@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Favoritos">
+    tools:context=".View.Favoritos"
+    android:background="#000">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:id="@+id/recyclerViewFragmentFavoritos"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="18dp"
+
         />
 
 

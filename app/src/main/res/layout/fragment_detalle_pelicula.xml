@@ -30,6 +30,13 @@
         android:layout_height="200dp"
         android:src="@drawable/cargando" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FloatingActionButtonFavoritos"
+        android:layout_gravity="center|right"
+        />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutFragmentDetallePelicula"
         android:layout_width="match_parent"
@@ -42,5 +49,7 @@
         android:id="@+id/viewPagerFragmentDetallePelicula"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 
 </LinearLayout>

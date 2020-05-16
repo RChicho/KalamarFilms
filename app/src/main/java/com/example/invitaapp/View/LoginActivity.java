@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void validacionRegister() {
-        if (editTextUsuarioLogin != null && editTextPasswordLogin != null) {
+        if (!editTextUsuarioLogin.getText().toString().isEmpty() && !editTextPasswordLogin.getText().toString().isEmpty()) {
             register();
         } else {
             Toast.makeText(LoginActivity.this, "MAIL O PASSWORD INVALIDO", Toast.LENGTH_SHORT).show();
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void validacionDeLogin() {
-        if (editTextUsuarioLogin != null && editTextPasswordLogin != null) {
+        if (!editTextUsuarioLogin.getText().toString().isEmpty()  && !editTextPasswordLogin.getText().toString().isEmpty()) {
             login();
         } else {
             Toast.makeText(LoginActivity.this, "MAIL O PASSWORD INVALIDO", Toast.LENGTH_SHORT).show();
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                             irAlHomeDeLaApp(user.getEmail());
                             Toast.makeText(LoginActivity.this, "INICIO OK", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "El usuario no se pudo loguear", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "El usuario no se pudo loguear o no existe", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                             irAlHomeDeLaApp(user.getEmail());
                             Toast.makeText(LoginActivity.this, "USUARIO REGISTRADO", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "El usuario no pudo registrarse", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "El usuario no pudo registrarse o ya existe", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

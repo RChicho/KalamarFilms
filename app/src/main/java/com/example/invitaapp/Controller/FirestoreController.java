@@ -19,7 +19,6 @@ public class FirestoreController {
         firestoreDao.agregarPeliculaAFav(pelicula);
     }
 
-    //traigo las peliculas y se las paso a la vista
     public void traerListaDeFavorito(final ResultListener<List<Pelicula>> listenerDeLaVista){
         firestoreDao.traerPeliculasFavoritas(new ResultListener<List<Pelicula>>() {
             @Override

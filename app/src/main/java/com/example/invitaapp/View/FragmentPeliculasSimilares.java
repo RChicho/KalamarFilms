@@ -40,11 +40,12 @@ public class FragmentPeliculasSimilares extends Fragment implements PeliculaAdap
         View vista = inflater.inflate(R.layout.fragment_peliculas_similares, container, false);
         recyclerView = vista.findViewById(R.id.recyclerViewFragmentPeliculasSimilares);
 
+        final PeliculaAdapter peliculaAdapter = new PeliculaAdapter(this);
+        final PeliculaController peliculaController = new PeliculaController();
+
         Pelicula unaPelicula = recepcionarPelicula();
         Integer idMovie = unaPelicula.getId();
 
-        final PeliculaAdapter peliculaAdapter = new PeliculaAdapter(this);
-        final PeliculaController peliculaController = new PeliculaController();
 
         peliculaController.traerListaPeliculasSimilares(idMovie, new ResultListener<List<Pelicula>>() {
             @Override

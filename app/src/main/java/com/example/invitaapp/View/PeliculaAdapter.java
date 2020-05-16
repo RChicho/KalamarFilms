@@ -1,16 +1,14 @@
 package com.example.invitaapp.View;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.example.invitaapp.Model.Pelicula;
 import com.example.invitaapp.R;
 
@@ -59,14 +57,16 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
     }
 
 
+    public interface ListenerDelAdapter {
+        void informarPeliculaSeleccionada(Pelicula pelicula);
+    }
+
     public class PeliculaViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageViewPelicula;
 
         public PeliculaViewHolder(@NonNull final View itemView) {
             super(itemView);
-
-
             imageViewPelicula = itemView.findViewById(R.id.imageViewImagenPelicula);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -75,11 +75,8 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
 
                     Pelicula peliculaSeleccionada = listaDePeliculas.get(getAdapterPosition());
                     listenerDelAdapter.informarPeliculaSeleccionada(peliculaSeleccionada);
-
                 }
             });
-
-
         }
 
         public void CargarImagen(Pelicula pelicula) {
@@ -87,11 +84,6 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
         }
 
     }
-
-    public interface ListenerDelAdapter {
-        public void informarPeliculaSeleccionada(Pelicula pelicula);
-    }
-
 
 
 }

@@ -1,4 +1,5 @@
 package com.example.invitaapp.View;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +25,6 @@ public class Favoritos extends Fragment implements PeliculaAdapter.ListenerDelAd
     private FirestoreController firestoreController;
 
 
-
     public Favoritos() {
         // Required empty public constructor
     }
@@ -38,12 +38,15 @@ public class Favoritos extends Fragment implements PeliculaAdapter.ListenerDelAd
 
         recyclerViewFavoritos = view.findViewById(R.id.recyclerViewFragmentFavoritos);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,RecyclerView.VERTICAL,false);
         peliculaAdapter = new PeliculaAdapter(this);
+        firestoreController = new FirestoreController();
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,RecyclerView.VERTICAL,false);
         recyclerViewFavoritos.setLayoutManager(gridLayoutManager);
         recyclerViewFavoritos.setAdapter(peliculaAdapter);
 
-        firestoreController.traerListaDeFavorito(new ResultListener<List<Pelicula>>() {
+
+        firestoreController.traerListaDeFavorito( new ResultListener<List<Pelicula>>() {
             @Override
             public void finish(List<Pelicula> result) {
                 peliculaAdapter.setPeliculaList(result);
@@ -57,6 +60,13 @@ public class Favoritos extends Fragment implements PeliculaAdapter.ListenerDelAd
     public void informarPeliculaSeleccionada(Pelicula pelicula) {
         listenerDelFragment.recibirPelicula(pelicula);
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listenerDelFragment = (ListenerDelFragment) context;
+    }
+
 
     public interface ListenerDelFragment{
         void recibirPelicula(Pelicula pelicula);

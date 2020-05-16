@@ -26,8 +26,7 @@ public class FragmentDetallePelicula extends Fragment {
     private FloatingActionButton botonFav;
     private FirestoreController firestoreController;
     private Boolean esFavorita;
-    private Pelicula peliculaSeleccionada;
-
+    private Pelicula unaPelicula;
 
     public static final String CLAVE_PELICULA = "CLAVE_PELICULA";
 
@@ -56,7 +55,9 @@ public class FragmentDetallePelicula extends Fragment {
 
         inflarVistas(vistaFragment);
 
-        Pelicula unaPelicula = recepcionarPelicula();
+        firestoreController = new FirestoreController();
+
+        unaPelicula = recepcionarPelicula();
 
 
         textViewTitulo.setText(unaPelicula.getTitulo());
@@ -66,24 +67,20 @@ public class FragmentDetallePelicula extends Fragment {
         viewPagerDetallePelicula.setAdapter(detallePeliculaViewPagerAdapter);
         tabLayoutDetallePelicula.setupWithViewPager(viewPagerDetallePelicula);
 
-
-       /*if(quiereTrailer){
-            viewPagerDetallePelicula.setCurrentItem(3);
-        }*/
-
         botonFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firestoreController.agregarPeliculaAFav(peliculaSeleccionada);
+                firestoreController.agregarPeliculaAFav(unaPelicula);
                 esFavorita = !esFavorita;
                 actualizarFav();
             }
         });
 
+
         firestoreController.traerListaDeFavorito(new ResultListener<List<Pelicula>>() {
             @Override
             public void finish(List<Pelicula> result) {
-                esFavorita = result.contains(peliculaSeleccionada);
+                esFavorita = result.contains(unaPelicula);
                 actualizarFav();
                 habilitarOnClickDeFav();
             }
@@ -109,7 +106,7 @@ public class FragmentDetallePelicula extends Fragment {
         imageViewFotoPeli = vistaFragment.findViewById(R.id.ImageViewDetallePeliculaFoto);
         tabLayoutDetallePelicula = vistaFragment.findViewById(R.id.tabLayoutFragmentDetallePelicula);
         viewPagerDetallePelicula = vistaFragment.findViewById(R.id.viewPagerFragmentDetallePelicula);
-        botonFav = vistaFragment.findViewById(R.id.)
+        botonFav = vistaFragment.findViewById(R.id.FloatingActionButtonFavoritos);
     }
 
     public void CargarImagen(Pelicula pelicula){
